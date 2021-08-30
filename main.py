@@ -43,8 +43,9 @@ class Lod(Entity):
             pygame.mixer.music.pause()
 
             gmover.play()
-            
+            sleep(0.5)
             pygame.mixer.music.play(-1)
+
             self.wynik = 0
             self.szybkosc = 3
             self.text.text = f"Wynik: {self.wynik}"
