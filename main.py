@@ -1,11 +1,17 @@
 from ursina import *
-from playsound import playsound
+import pygame
 import random
 from time import sleep
+pygame.init()
 app = Ursina()
 application.development_mode = False
 window.fullscreen = True
 window.cog_button.enabled = False
+
+music = pygame.mixer.music.load("assets/Star Commander1.wav")
+punkt = pygame.mixer.Sound("assets/mixkit-quick-jump-arcade-game-239.wav")
+gmover = pygame.mixer.Sound("assets/gmover.wav")
+pygame.mixer.music.play(-1)
 
 
 class Lod(Entity):
@@ -24,7 +30,7 @@ class Lod(Entity):
 
     def update(self):
         if self.intersects().hit:
-
+            punkt.play()
             self.visible = False
             self.x = random.randint(-7, 7)
             self.y = 5
@@ -34,7 +40,11 @@ class Lod(Entity):
             self.text.color = color.white
             self.szybkosc += 0.1
         if self.y < -6:
+            pygame.mixer.music.pause()
 
+            gmover.play()
+            
+            pygame.mixer.music.play(-1)
             self.wynik = 0
             self.szybkosc = 3
             self.text.text = f"Wynik: {self.wynik}"
