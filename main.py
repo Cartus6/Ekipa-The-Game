@@ -66,10 +66,10 @@ lod = Lod()
 def update():
 
     if held_keys['a']:
-        friz.x -= 5.5 * time.dt
+        friz.x -= 6 * time.dt
 
     if held_keys['d']:
-        friz.x += 5.5 * time.dt
+        friz.x += 6 * time.dt
 
 
 app.run()
