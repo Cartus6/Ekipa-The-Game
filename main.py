@@ -2,11 +2,13 @@ from ursina import *
 import pygame
 import random
 from time import sleep
+import json
 pygame.init()
 app = Ursina()
 application.development_mode = False
 window.fullscreen = True
 window.cog_button.enabled = False
+
 
 music = pygame.mixer.music.load("assets/Star Commander1.wav")
 punkt = pygame.mixer.Sound("assets/mixkit-quick-jump-arcade-game-239.wav")
